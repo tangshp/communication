@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sunward/CLionProjects/TCPIPdemoClient/main.cpp
+sys/socket.h
+/home/sunward/CLionProjects/TCPIPdemoClient/sys/socket.h
+netinet/in.h
+/home/sunward/CLionProjects/TCPIPdemoClient/netinet/in.h
+stdio.h
+/home/sunward/CLionProjects/TCPIPdemoClient/stdio.h
+string.h
+-
+unistd.h
+-
+arpa/inet.h
+-
+

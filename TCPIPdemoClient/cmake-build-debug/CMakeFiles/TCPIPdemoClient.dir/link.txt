@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/TCPIPdemoClient.dir/main.cpp.o  -o TCPIPdemoClient 
