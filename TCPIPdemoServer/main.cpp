@@ -19,8 +19,8 @@ int main() {
     //      SOCK_STREAM:流式协议，包括TCP;指定流式协议，并非就是指定类TCP协议
     //      SOCK_DGRAM：报式协议，包括UDP;指报式式协议，并非就是指定类UDP协议
     //protocol:一般使用0，表示使用默认协议;流式协议的默认协议是TCP协议;报式协议默认协议是UDP协议
-    //返回值表示文件描述符
-    //printf("sfd:%d\n",sfd);sfd=3
+    //返回值表示文件描述符,打开一个进程，最多产生1024个文件描述符
+    //printf("sfd:%d\n",sfd);//sfd=3
 
     //2 把socket与ip/端口绑定（一台主机有三个网口）
     struct sockaddr_in serv_addr;//定义协议族 ip地址 port,此时是垃圾值(使用sockaddr_in的原因在于，TCP通讯在socket之后才出现)
@@ -35,13 +35,13 @@ int main() {
     //addr：端口与ip
 
     //3 设置同时连接的客服端的最大个数,并与之3次握手
-    listen(sfd,128);
+    listen(sfd,128);//该函数不是阻塞函数
 
     //4 accept阻塞型
     struct sockaddr_in client_addr;
     socklen_t addr_len(sizeof(client_addr));
     printf("Accepting connections ...\n");
-    int cfd = accept(sfd,(struct sockaddr*)&client_addr, &addr_len);
+    int cfd = accept(sfd,(struct sockaddr*)&client_addr, &addr_len);//调用accept前先用sizeof(client_addr)初始化addr_len（该参数是传入参数）
     //accept用来保存来链接的客户端的ip与port号,调用成功后,会返回一个新的文件描述符,用来读接受到的文件
     //int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);
     //addr:传出参数;存储来链接的客户端的ip和端口号,事先不知道这个变量的大小,所以要定义的大些
