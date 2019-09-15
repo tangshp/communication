@@ -46,6 +46,8 @@ int main() {
     //int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);
     //addr:传出参数;存储来链接的客户端的ip和端口号,事先不知道这个变量的大小,所以要定义的大些
     //addrlen:传入传出参数;调用函数前,作为传入参数,是自己定义的addr的大小;调用函数后,是真正链接到的客户端的addr的大小
+    //cfd:用来与该连接进程读写操作
+    //sfd:可以继续用来继续accept其它的进程
 
     char client_ip[128];
     printf("client IP:%s\t%d\n",
